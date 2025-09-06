@@ -5,7 +5,7 @@ pymongo
 certifi
 pymongo[srv]
 scikit-learn
-mlflow
+mlflow>=2,<3
 pyaml
 dagshub
 fastapi
