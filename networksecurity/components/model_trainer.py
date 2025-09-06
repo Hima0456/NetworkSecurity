@@ -29,6 +29,14 @@ from urllib.parse import urlparse
 import dagshub
 dagshub.init(repo_owner='Hima0456', repo_name='NetworkSecurity', mlflow=True)
 
+os.environ["MLFLOW_TRACKING_URI"]= "https://dagshub.com/Hima0456/NetworkSecurity.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"] = "Hima0456"
+
+from dotenv import load_dotenv
+load_dotenv()
+
+MLFLOW_TRACKING_PASSWORD=os.getenv("MLFLOW_TRACKING_PASSWORD")
+os.environ["MLFLOW_TRACKING_PASSWORD"] = MLFLOW_TRACKING_PASSWORD
 
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
@@ -46,6 +54,7 @@ class ModelTrainer:
             precision_score=classificationmetric.precision_score
             recall_score=classificationmetric.recall_score
 
+            
 
             mlflow.log_metric("f1_score",f1_score)
             mlflow.log_metric("precision",precision_score)
@@ -61,7 +70,6 @@ class ModelTrainer:
                 mlflow.sklearn.log_model(best_model, "model", registered_model_name=best_model)
             else:
                 mlflow.sklearn.log_model(best_model, "model")
-
 
         
     def train_model(self,X_train,y_train,x_test,y_test):
