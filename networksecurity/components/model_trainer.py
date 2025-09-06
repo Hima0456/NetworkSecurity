@@ -49,7 +49,7 @@ class ModelTrainer:
         
     def track_mlflow(self,best_model,classificationmetric):
         mlflow.set_tracking_uri("https://dagshub.com/Hima0456/NetworkSecurity.mlflow")
-        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        #tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             f1_score=classificationmetric.f1_score
             precision_score=classificationmetric.precision_score
@@ -61,19 +61,7 @@ class ModelTrainer:
             mlflow.log_metric("precision",precision_score)
             mlflow.log_metric("recall_score",recall_score)
             mlflow.sklearn.log_model(best_model,"model")
-            # Model registry does not work with file store
-            if tracking_url_type_store != "file":
-
-                # Register the model
-                # There are other ways to use the Model Registry, which depends on the use case,
-                # please refer to the doc for more information:
-                # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                joblib.dump(best_model, "model.pkl")
-                mlflow.log_artifact("model.pkl")
-            else:
-                joblib.dump(best_model, "model.pkl")
-                mlflow.log_artifact("model.pkl")
-
+            
         
     def train_model(self,X_train,y_train,x_test,y_test):
         models = {
@@ -127,13 +115,13 @@ class ModelTrainer:
         classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
         
         ## Track the experiements with mlflow
-        self.track_mlflow(best_model,classification_train_metric)
+       # self.track_mlflow(best_model,classification_train_metric)
 
 
         y_test_pred=best_model.predict(x_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
-        self.track_mlflow(best_model,classification_test_metric)
+        #self.track_mlflow(best_model,classification_test_metric)
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
             
