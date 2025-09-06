@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/ee8e456d504a4861972ee3e9cbf87e52/artifacts
+end_time: 1757184496867
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ee8e456d504a4861972ee3e9cbf87e52
+run_name: unique-hog-360
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757184495020
+status: 4
+tags: []
+user_id: himas1

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/0675d1f3ba7644cd9fa2f2d81d5601a1/artifacts
+end_time: 1757184670369
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0675d1f3ba7644cd9fa2f2d81d5601a1
+run_name: thundering-worm-101
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757184668546
+status: 4
+tags: []
+user_id: himas1

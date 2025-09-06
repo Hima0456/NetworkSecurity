@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/98b2e5c9572a4b708f3fd8074af154dc/artifacts
+end_time: 1757184979759
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 98b2e5c9572a4b708f3fd8074af154dc
+run_name: rumbling-yak-203
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757184978041
+status: 4
+tags: []
+user_id: himas1
