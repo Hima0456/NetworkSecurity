@@ -1,23 +1,8 @@
 FROM python:3.10-slim-buster
-
 WORKDIR /app
 COPY . /app
 
-# Install dependencies needed for awscli
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-        curl \
-        unzip \
-        less \
-        groff \
-        ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt update -y && apt install awscli -y
 
-# Install AWS CLI via pip
-RUN pip install --no-cache-dir awscli
-
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
+RUN apt-get update && pip install -r requirements.txt
 CMD ["python3", "app.py"]
